@@ -19,6 +19,7 @@ public class Main extends Application {
         counter.printCandidateHistograms();
         System.out.println("------ END of STATISTICS ------");
         
-        //launch();
+        launch();
+    
     }
 }
