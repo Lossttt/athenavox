@@ -1,3 +1,6 @@
 .buttonFont{
     -fx-font-family: 'Quicksand', sans-serif;
 }
+.leftSide {
+    -fx-background-color: #c9e9ee;
+}
