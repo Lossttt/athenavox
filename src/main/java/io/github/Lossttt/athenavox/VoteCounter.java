@@ -1,12 +1,10 @@
-package main.java;
+package io.github.Lossttt.athenavox;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class VoteCounter {
     private static final int NUM_CANDIDATES = 8;
@@ -30,7 +28,7 @@ public class VoteCounter {
         ageGroupVotes = new int[NUM_AGE_GROUPS * NUM_CANDIDATES];
         ageGroupCounts = new int[NUM_AGE_GROUPS];
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("B:\\Java\\athenavox\\athenavox\\AthenaVox\\src\\main\\java\\Vote_data.text"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 int vote = Integer.parseInt(line, 16);
@@ -115,13 +113,13 @@ public class VoteCounter {
         for (int i = 0; i < NUM_CANDIDATES; i++) {
             System.out.println();
             System.out.println("Candidate " + i + ": " + candidateVotes[i] + " votes");
-            System.out.println("  Male votes: " + maleVotes[i]);
-            System.out.println("  Female votes: " + femaleVotes[i]);
+            System.out.println("  Male votes:\t" + maleVotes[i]);
+            System.out.println("  Female votes:\t" + femaleVotes[i]);
             for (int j = 0; j < NUM_AGE_GROUPS; j++) {
                 int ageGroupVoteCount = ageGroupVotes[j * NUM_CANDIDATES + i];
                 int ageGroupCount = ageGroupCounts[j];
                 double ageGroupVotePercent = 100.0 * ageGroupVoteCount / ageGroupCount;
-                System.out.printf("  Age group %d: %d votes (%.2f%%)\n", j, ageGroupVoteCount, ageGroupVotePercent);
+                System.out.printf("  Age group %d: %d votes\t(%.2f%%)\n", j, ageGroupVoteCount, ageGroupVotePercent);
             }
         }
 
