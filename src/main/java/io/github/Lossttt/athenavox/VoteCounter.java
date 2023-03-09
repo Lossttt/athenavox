@@ -50,7 +50,7 @@ public class VoteCounter {
 
     public void printCandidateHistograms() {
         System.out.println("Histogram of total votes per candidate:");
-        System.out.println("--- BEGIN of HISTOGRAM ---");
+        // System.out.println("--- BEGIN of HISTOGRAM ---");
         for (int i = 0; i < NUM_CANDIDATES; i++) {
             System.out.print("Kandidaat " + i + "\t| ");
             for (int j = 0; j < candidateVotes[i]; j++) {
@@ -58,11 +58,11 @@ public class VoteCounter {
             }
             System.out.println();
         }
-        System.out.println("--- END of HISTOGRAM ---");
+        // System.out.println("--- END of HISTOGRAM ---");
         System.out.println();
 
         System.out.println("Histogram of male votes per candidate:");
-        System.out.println("--- BEGIN of HISTOGRAM ---");
+        // System.out.println("--- BEGIN of HISTOGRAM ---");
         for (int i = 0; i < NUM_CANDIDATES; i++) {
             System.out.print("Kandidaat " + i + "\t| ");
             for (int j = 0; j < maleVotes[i]; j++) {
@@ -70,11 +70,11 @@ public class VoteCounter {
             }
             System.out.println();
         }
-        System.out.println("--- END of HISTOGRAM ---");
+        // System.out.println("--- END of HISTOGRAM ---");
         System.out.println();
 
         System.out.println("Histogram of female votes per candidate:");
-        System.out.println("--- BEGIN of HISTOGRAM ---");
+        // System.out.println("--- BEGIN of HISTOGRAM ---");
         for (int i = 0; i < NUM_CANDIDATES; i++) {
             System.out.print("Kandidaat " + i + "\t| ");
             for (int j = 0; j < femaleVotes[i]; j++) {
@@ -82,7 +82,7 @@ public class VoteCounter {
             }
             System.out.println();
         }
-        System.out.println("--- END of HISTOGRAM ---");
+        // System.out.println("--- END of HISTOGRAM ---");
         System.out.println();
 
     }
