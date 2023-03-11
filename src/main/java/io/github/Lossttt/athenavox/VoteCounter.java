@@ -3,12 +3,16 @@ package io.github.Lossttt.athenavox;
 
 // Imports
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VoteCounter {
+public class VoteCounter 
+{
     private static final int NUM_CANDIDATES = 8;     // Constant that defines the number of candidates in the election.
     private static final int AGE_MASK = 0xFE00;      // Constant that masks the age bits in a vote.
     private static final int GENDER_MASK = 0x0100;   // Constant that masks the gender bit in a vote.
@@ -22,7 +26,8 @@ public class VoteCounter {
     private int[] ageGroupVotes;                     // Array of vote counts for each voter in age group.
     private int[] ageGroupCounts;                    // Array of counts of voters in each age group.
 
-    public VoteCounter(String filename) {            
+    public VoteCounter(String filename) 
+    {            
         validVotes = new ArrayList<>();              // Initialize list of valid votes.
         candidateVotes = new int[NUM_CANDIDATES];    // Initialize array of vote counts for each candidate.   
         maleVotes = new int[NUM_CANDIDATES];         // Initialize array of vote counts for each male voter.
@@ -32,20 +37,24 @@ public class VoteCounter {
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String line;
-            while ((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null) 
+            {
                 int vote = Integer.parseInt(line, 16); // For each line, the code converts it from a hexadecimal string to an integer using Integer.parseInt 
                 int age = (vote & AGE_MASK) >> 9;
                 int gender = (vote & GENDER_MASK) >> 7;
                 int candidate = vote & CANDIDATE_MASK;
 
-                if (isValidVote(age, candidate)) {
+                if (isValidVote(age, candidate)) 
+                {
                     validVotes.add(vote);
                     // The code checks if the vote is valid by calling the isValidVote() method, 
                     // passing in the age and candidate as arguments. 
                     // ** If the vote is valid, it adds the vote to the validVotes. **
                 }
             }
-        } catch (IOException e) {
+
+        } catch (IOException e) 
+        {
             System.err.println("Failed to read file: " + e.getMessage());
             System.exit(1);
         }
@@ -54,12 +63,15 @@ public class VoteCounter {
         // After all votes have been processed, the code call the method below to calculate statistics on the valid votes.
     }
 
-    public void printCandidateHistograms() {
+    public void printCandidateHistograms() 
+    {
         System.out.println("Histogram of total votes per candidate:");
         // System.out.println("--- BEGIN of HISTOGRAM ---");
-        for (int i = 0; i < NUM_CANDIDATES; i++) {
+        for (int i = 0; i < NUM_CANDIDATES; i++) 
+        {
             System.out.print("Kandidaat " + i + "\t| ");
-            for (int j = 0; j < candidateVotes[i]; j++) {
+            for (int j = 0; j < candidateVotes[i]; j++) 
+            {
                 System.out.print("*");
             }
             System.out.println();
@@ -69,9 +81,11 @@ public class VoteCounter {
 
         System.out.println("Histogram of male votes per candidate:");
         // System.out.println("--- BEGIN of HISTOGRAM ---");
-        for (int i = 0; i < NUM_CANDIDATES; i++) {
+        for (int i = 0; i < NUM_CANDIDATES; i++) 
+        {
             System.out.print("Kandidaat " + i + "\t| ");
-            for (int j = 0; j < maleVotes[i]; j++) {
+            for (int j = 0; j < maleVotes[i]; j++) 
+            {
                 System.out.print("*");
             }
             System.out.println();
@@ -81,9 +95,11 @@ public class VoteCounter {
 
         System.out.println("Histogram of female votes per candidate:");
         // System.out.println("--- BEGIN of HISTOGRAM ---");
-        for (int i = 0; i < NUM_CANDIDATES; i++) {
+        for (int i = 0; i < NUM_CANDIDATES; i++) 
+        {
             System.out.print("Kandidaat " + i + "\t| ");
-            for (int j = 0; j < femaleVotes[i]; j++) {
+            for (int j = 0; j < femaleVotes[i]; j++) 
+            {
                 System.out.print("*");
             }
             System.out.println();
@@ -93,7 +109,8 @@ public class VoteCounter {
 
     }
 
-    private void calculateStatistics() {
+    private void calculateStatistics() 
+    {
         for (int vote : validVotes) {
             int age = (vote & AGE_MASK) >> 9;
             int gender = (vote & GENDER_MASK) >> 7;
@@ -112,16 +129,19 @@ public class VoteCounter {
         }
     }
 
-    public void printResults() {
+    public void printResults() 
+    {
         System.out.println("*** Total number of valid votes: " + validVotes.size() + " ***");
         System.out.println("");
         System.out.println("--- Candidate statistics: ---");
-        for (int i = 0; i < NUM_CANDIDATES; i++) {
+        for (int i = 0; i < NUM_CANDIDATES; i++) 
+        {
             System.out.println();
             System.out.println("Candidate " + i + ": " + candidateVotes[i] + " votes");
             System.out.println("  Male votes:\t" + maleVotes[i]);
             System.out.println("  Female votes:\t" + femaleVotes[i]);
-            for (int j = 0; j < NUM_AGE_GROUPS; j++) {
+            for (int j = 0; j < NUM_AGE_GROUPS; j++) 
+            {
                 int ageGroupVoteCount = ageGroupVotes[j * NUM_CANDIDATES + i];
                 int ageGroupCount = ageGroupCounts[j];
                 double ageGroupVotePercent = 100.0 * ageGroupVoteCount / ageGroupCount;
@@ -137,9 +157,11 @@ public class VoteCounter {
         System.out.println();
     }
 
-    private int getTopCandidate(int[] votes, int startIndex, int endIndex) {
+    private int getTopCandidate(int[] votes, int startIndex, int endIndex) 
+    {
         int topCandidate = startIndex;
-        for (int i = startIndex + 1; i <= endIndex; i++) {
+        for (int i = startIndex + 1; i <= endIndex; i++) 
+        {
             if (votes[i] > votes[topCandidate]) {
                 topCandidate = i;
             }
@@ -147,17 +169,21 @@ public class VoteCounter {
         return topCandidate;
     }
 
-    private boolean isValidVote(int age, int candidate) {
-        if (age < 18 || age >= 90) {
+    private boolean isValidVote(int age, int candidate) 
+    {
+        if (age < 18 || age >= 90) 
+        {
             return false;
         }
-        if (candidate < 0 || candidate >= NUM_CANDIDATES) {
+        if (candidate < 0 || candidate >= NUM_CANDIDATES) 
+        {
             return false;
         }
         return true;
     }
 
-    private int getAgeGroup(int age) {
+    private int getAgeGroup(int age) 
+    {
         if (age < 30) {
             return 0;
         } else if (age < 45) {
@@ -168,4 +194,84 @@ public class VoteCounter {
             return 3;
         }
     }
+
+    public void printToFile(String filename) 
+    {
+        final String[] ageGroups = {"18-29", "30-44", "45-59", "60-99"};
+
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) 
+        {
+            writer.write("Histogram of total votes per candidate:\n");
+            for (int i = 0; i < NUM_CANDIDATES; i++) 
+            {
+                writer.write("Kandidaat " + i + "\t| ");
+                for (int j = 0; j < candidateVotes[i]; j++) 
+                {
+                    writer.write("*");
+                }
+                writer.write("\n");
+            }
+            writer.write("\n");
+
+            writer.write("Histogram of male votes per candidate:\n");
+            for (int i = 0; i < NUM_CANDIDATES; i++) 
+            {
+                writer.write("Kandidaat " + i + "\t| ");
+                for (int j = 0; j < maleVotes[i]; j++) 
+                {
+                    writer.write("*");
+                }
+                writer.write("\n");
+            }
+            writer.write("\n");
+
+            writer.write("Histogram of female votes per candidate:\n");
+            for (int i = 0; i < NUM_CANDIDATES; i++) 
+            {
+                writer.write("Kandidaat " + i + "\t| ");
+                for (int j = 0; j < femaleVotes[i]; j++) 
+                {
+                    writer.write("*");
+                }
+                writer.write("\n");
+            }
+            writer.write("\n");
+
+            writer.write("*** Total number of valid votes: " + validVotes.size() + " ***\n");
+            writer.write("\n");
+
+            writer.write("--- Candidate statistics: ---\n");
+            for (int i = 0; i < NUM_CANDIDATES; i++) 
+            {
+                writer.write("\n");
+                writer.write("- Candidate " + i +" -\n");
+                writer.write("Total votes: " + candidateVotes[i] + "\n");
+                writer.write("Male votes: " + maleVotes[i] + "\n");
+                writer.write("Female votes: " + femaleVotes[i] + "\n");
+                writer.write("\n");
+            }
+
+            writer.write("--- Age group statistics: ---\n");
+            for (int i = 0; i < NUM_AGE_GROUPS; i++) 
+            {
+                writer.write("\n");
+                writer.write("Age group " + i + " (" + ageGroups[i] +")"+ ":\n");
+                writer.write("______________\n");
+                writer.write("Total votes: " + ageGroupCounts[i] + "\n");
+                for (int k = 0; k < NUM_CANDIDATES; k++) 
+                {
+                    writer.write("Candidate " + k + ": " + ageGroupVotes[i * NUM_CANDIDATES + k] + "\n");
+                }
+                writer.write("\n");
+            }
+
+        } catch (IOException e) 
+        {
+            System.err.println("Failed to write file: " + e.getMessage());
+            System.exit(1);
+        }
+    }
 }
+
+
