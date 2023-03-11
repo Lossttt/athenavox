@@ -69,7 +69,7 @@ public class VoteCounter
         // System.out.println("--- BEGIN of HISTOGRAM ---");
         for (int i = 0; i < NUM_CANDIDATES; i++) 
         {
-            System.out.print("Kandidaat " + i + "\t| ");
+            System.out.print("Candidate " + i + "\t| ");
             for (int j = 0; j < candidateVotes[i]; j++) 
             {
                 System.out.print("*");
@@ -83,7 +83,7 @@ public class VoteCounter
         // System.out.println("--- BEGIN of HISTOGRAM ---");
         for (int i = 0; i < NUM_CANDIDATES; i++) 
         {
-            System.out.print("Kandidaat " + i + "\t| ");
+            System.out.print("Candidate " + i + "\t| ");
             for (int j = 0; j < maleVotes[i]; j++) 
             {
                 System.out.print("*");
@@ -97,7 +97,7 @@ public class VoteCounter
         // System.out.println("--- BEGIN of HISTOGRAM ---");
         for (int i = 0; i < NUM_CANDIDATES; i++) 
         {
-            System.out.print("Kandidaat " + i + "\t| ");
+            System.out.print("Candidate " + i + "\t| ");
             for (int j = 0; j < femaleVotes[i]; j++) 
             {
                 System.out.print("*");
@@ -205,7 +205,7 @@ public class VoteCounter
             writer.write("Histogram of total votes per candidate:\n");
             for (int i = 0; i < NUM_CANDIDATES; i++) 
             {
-                writer.write("Kandidaat " + i + "\t| ");
+                writer.write("Candidate " + i + "\t| ");
                 for (int j = 0; j < candidateVotes[i]; j++) 
                 {
                     writer.write("*");
@@ -217,7 +217,7 @@ public class VoteCounter
             writer.write("Histogram of male votes per candidate:\n");
             for (int i = 0; i < NUM_CANDIDATES; i++) 
             {
-                writer.write("Kandidaat " + i + "\t| ");
+                writer.write("Candidate " + i + "\t| ");
                 for (int j = 0; j < maleVotes[i]; j++) 
                 {
                     writer.write("*");
@@ -229,7 +229,7 @@ public class VoteCounter
             writer.write("Histogram of female votes per candidate:\n");
             for (int i = 0; i < NUM_CANDIDATES; i++) 
             {
-                writer.write("Kandidaat " + i + "\t| ");
+                writer.write("Candidate " + i + "\t| ");
                 for (int j = 0; j < femaleVotes[i]; j++) 
                 {
                     writer.write("*");
@@ -246,9 +246,9 @@ public class VoteCounter
             {
                 writer.write("\n");
                 writer.write("- Candidate " + i +" -\n");
-                writer.write("Total votes: " + candidateVotes[i] + "\n");
-                writer.write("Male votes: " + maleVotes[i] + "\n");
-                writer.write("Female votes: " + femaleVotes[i] + "\n");
+                writer.write("Total votes: " + "\t" + candidateVotes[i] + "\n");
+                writer.write("Male votes: " + "\t" + maleVotes[i] + "\n");
+                writer.write("Female votes: " + "\t" + femaleVotes[i] + "\n");
                 writer.write("\n");
             }
 
