@@ -1,0 +1,134 @@
+Histogram of total votes per candidate:
+Kandidaat 0	| *****
+Kandidaat 1	| **
+Kandidaat 2	| **
+Kandidaat 3	| 
+Kandidaat 4	| ***
+Kandidaat 5	| *****
+Kandidaat 6	| *
+Kandidaat 7	| 
+
+Histogram of male votes per candidate:
+Kandidaat 0	| *
+Kandidaat 1	| *
+Kandidaat 2	| 
+Kandidaat 3	| 
+Kandidaat 4	| **
+Kandidaat 5	| **
+Kandidaat 6	| 
+Kandidaat 7	| 
+
+Histogram of female votes per candidate:
+Kandidaat 0	| ****
+Kandidaat 1	| *
+Kandidaat 2	| **
+Kandidaat 3	| 
+Kandidaat 4	| *
+Kandidaat 5	| ***
+Kandidaat 6	| *
+Kandidaat 7	| 
+
+*** Total number of valid votes: 18 ***
+
+--- Candidate statistics: ---
+
+- Candidate 0 -
+Total votes: 5
+Male votes: 1
+Female votes: 4
+
+
+- Candidate 1 -
+Total votes: 2
+Male votes: 1
+Female votes: 1
+
+
+- Candidate 2 -
+Total votes: 2
+Male votes: 0
+Female votes: 2
+
+
+- Candidate 3 -
+Total votes: 0
+Male votes: 0
+Female votes: 0
+
+
+- Candidate 4 -
+Total votes: 3
+Male votes: 2
+Female votes: 1
+
+
+- Candidate 5 -
+Total votes: 5
+Male votes: 2
+Female votes: 3
+
+
+- Candidate 6 -
+Total votes: 1
+Male votes: 0
+Female votes: 1
+
+
+- Candidate 7 -
+Total votes: 0
+Male votes: 0
+Female votes: 0
+
+--- Age group statistics: ---
+
+Age group 0 (18-29):
+______________
+Total votes: 3
+Candidate 0: 1
+Candidate 1: 0
+Candidate 2: 0
+Candidate 3: 0
+Candidate 4: 2
+Candidate 5: 0
+Candidate 6: 0
+Candidate 7: 0
+
+
+Age group 1 (30-44):
+______________
+Total votes: 4
+Candidate 0: 1
+Candidate 1: 1
+Candidate 2: 0
+Candidate 3: 0
+Candidate 4: 0
+Candidate 5: 2
+Candidate 6: 0
+Candidate 7: 0
+
+
+Age group 2 (45-59):
+______________
+Total votes: 1
+Candidate 0: 1
+Candidate 1: 0
+Candidate 2: 0
+Candidate 3: 0
+Candidate 4: 0
+Candidate 5: 0
+Candidate 6: 0
+Candidate 7: 0
+
+
+Age group 3 (60-99):
+______________
+Total votes: 10
+Candidate 0: 2
+Candidate 1: 1
+Candidate 2: 2
+Candidate 3: 0
+Candidate 4: 1
+Candidate 5: 3
+Candidate 6: 1
+Candidate 7: 0
+
