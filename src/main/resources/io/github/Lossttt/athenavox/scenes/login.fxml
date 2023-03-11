@@ -13,23 +13,16 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <left>
-      <AnchorPane prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: #7DA3EA;" styleClass="leftSide" stylesheets="@stylesheet.css" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="76.0" fitWidth="245.0" layoutX="63.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../images/Google_2015_logo.svg.png" />
-               </image>
-            </ImageView>
-         </children></AnchorPane>
+      <AnchorPane prefHeight="500.0" prefWidth="350.0" style="-fx-background-color: #7DA3EA;" styleClass="leftSide" stylesheets="@stylesheet.css" BorderPane.alignment="CENTER" />
    </left>
    <center>
-      <AnchorPane prefHeight="519.0" prefWidth="395.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="519.0" prefWidth="395.0" style="-fx-background-color: #F9F9F9;" BorderPane.alignment="CENTER">
          <children>
             <TextField layoutX="60.0" layoutY="243.0" prefHeight="27.0" prefWidth="251.0" promptText="Username or ID" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #7DA3EA;" />
             <PasswordField layoutX="59.0" layoutY="290.0" prefHeight="27.0" prefWidth="252.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #7DA3EA;" />
-            <Button layoutX="115.0" layoutY="388.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="122.0" style="-fx-background-color: #2545b8;" styleClass="buttonFont" stylesheets="@stylesheet.css" text="Login" textFill="WHITE" />
+            <Button layoutX="96.0" layoutY="391.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: #2545b1; -fx-border-radius: 5;" styleClass="buttonFont" stylesheets="@stylesheet.css" text="LOGIN" textFill="WHITE" />
             <Hyperlink layoutX="59.0" layoutY="328.0" text="Forgot Your Password ?" textFill="#4d83e8" />
-            <Text fill="#2343b8bf" layoutX="86.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Access your account">
+            <Text fill="#2343b8bf" layoutX="86.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign in to AthenaVox">
                <font>
                   <Font size="20.0" />
                </font>
@@ -45,9 +38,19 @@
                   <Font name="System Bold" size="30.0" />
                </font>
             </Text>
-            <ImageView fitHeight="84.0" fitWidth="100.0" layoutX="134.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
+            <Text fill="#8c8c8cb2" layoutX="89.0" layoutY="475.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AthenaVox™" textAlignment="CENTER" wrappingWidth="173.5169219970703">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fill="#8c8c8cb6" layoutX="64.0" layoutY="489.0" strokeType="OUTSIDE" strokeWidth="0.0" text="© Copyright. All rights reserved." textAlignment="CENTER" wrappingWidth="223.5169219970703">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="101.0" fitWidth="109.0" layoutX="125.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../images/user-286.png" />
+                  <Image url="@../../../../../images/user-244.png" />
                </image>
             </ImageView>
          </children>
