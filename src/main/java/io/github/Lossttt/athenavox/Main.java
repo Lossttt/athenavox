@@ -12,8 +12,9 @@ public class Main extends Application {
         stage.show(); // shows the LOGIN_SCENE
     }
     public static void main(String[] args) throws Exception {
+        String inputFile = "B:\\Java\\athenavox\\Vote_data.text";
 
-        VoteCounter counter = new VoteCounter("B:\\Java\\athenavox\\Vote_data.text");
+        VoteCounter counter = new VoteCounter(inputFile);
         System.out.println("------ BEGIN of STATISTICS ------");
         counter.printHistogram();
         counter.printResults();
