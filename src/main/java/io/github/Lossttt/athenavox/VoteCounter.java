@@ -193,7 +193,7 @@ public class VoteCounter {
 
 
     public void printToFile(String filename) {
-        final String[] ageGroups = {"18-29", "30-44", "45-59", "60-99"};
+        final String[] ageGroups = { "18-29", "30-44", "45-59", "60-99" };
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             writer.write("Histogram of total votes per candidate:\n");
@@ -216,8 +216,7 @@ public class VoteCounter {
             {
                 writer.write("Candidate " + i + "\t| ");
 
-                for (int j = 0; j < maleVotes[i]; j++) 
-                {
+                for (int j = 0; j < maleVotes[i]; j++) {
                     writer.write("*");
                 }
                 writer.write("\n");
@@ -230,8 +229,7 @@ public class VoteCounter {
             {
                 writer.write("Candidate " + i + "\t| ");
 
-                for (int j = 0; j < femaleVotes[i]; j++) 
-                {
+                for (int j = 0; j < femaleVotes[i]; j++) {
                     writer.write("*");
                 }
                 writer.write("\n");
@@ -246,11 +244,11 @@ public class VoteCounter {
             for (int i = 0; i < NUM_CANDIDATES; i++) 
             {
                 writer.write("\n");
-                writer.write("- Candidate " + i +" -\n");
-                writer.write("Total votes: " + "\t" + candidateVotes[i] + "\n");
+                writer.write("- Candidate " + i + " -\n");
                 writer.write("Male votes: " + "\t" + maleVotes[i] + "\n");
                 writer.write("Female votes: " + "\t" + femaleVotes[i] + "\n");
-                writer.write("\n");
+                writer.write("----------------\n");
+                writer.write("Total votes: " + "\t" + candidateVotes[i] + "\n");
             }
 
             writer.write("--- Age group statistics: ---\n");
@@ -258,7 +256,7 @@ public class VoteCounter {
             for (int i = 0; i < NUM_AGE_GROUPS; i++) 
             {
                 writer.write("\n");
-                writer.write("Age group " + i + " (" + ageGroups[i] +")"+ ":\n");
+                writer.write("Age group " + i + " (" + ageGroups[i] + ")" + ":\n");
                 writer.write("______________\n");
                 writer.write("Total votes: " + ageGroupCounts[i] + "\n");
 
