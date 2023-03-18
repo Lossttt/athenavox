@@ -1,84 +1,84 @@
 Histogram of total votes per candidate:
-Kandidaat 0	| *****
-Kandidaat 1	| **
-Kandidaat 2	| **
-Kandidaat 3	| 
-Kandidaat 4	| ***
-Kandidaat 5	| *****
-Kandidaat 6	| *
-Kandidaat 7	| 
+Candidate 0	| *****
+Candidate 1	| **
+Candidate 2	| **
+Candidate 3	| 
+Candidate 4	| ***
+Candidate 5	| *****
+Candidate 6	| *
+Candidate 7	| 
 
 Histogram of male votes per candidate:
-Kandidaat 0	| *
-Kandidaat 1	| *
-Kandidaat 2	| 
-Kandidaat 3	| 
-Kandidaat 4	| **
-Kandidaat 5	| **
-Kandidaat 6	| 
-Kandidaat 7	| 
+Candidate 0	| *
+Candidate 1	| *
+Candidate 2	| 
+Candidate 3	| 
+Candidate 4	| **
+Candidate 5	| **
+Candidate 6	| 
+Candidate 7	| 
 
 Histogram of female votes per candidate:
-Kandidaat 0	| ****
-Kandidaat 1	| *
-Kandidaat 2	| **
-Kandidaat 3	| 
-Kandidaat 4	| *
-Kandidaat 5	| ***
-Kandidaat 6	| *
-Kandidaat 7	| 
+Candidate 0	| ****
+Candidate 1	| *
+Candidate 2	| **
+Candidate 3	| 
+Candidate 4	| *
+Candidate 5	| ***
+Candidate 6	| *
+Candidate 7	| 
 
 *** Total number of valid votes: 18 ***
 
 --- Candidate statistics: ---
 
 - Candidate 0 -
-Total votes: 5
-Male votes: 1
-Female votes: 4
-
+Male votes: 	1
+Female votes: 	4
+----------------
+Total votes: 	5
 
 - Candidate 1 -
-Total votes: 2
-Male votes: 1
-Female votes: 1
-
+Male votes: 	1
+Female votes: 	1
+----------------
+Total votes: 	2
 
 - Candidate 2 -
-Total votes: 2
-Male votes: 0
-Female votes: 2
-
+Male votes: 	0
+Female votes: 	2
+----------------
+Total votes: 	2
 
 - Candidate 3 -
-Total votes: 0
-Male votes: 0
-Female votes: 0
-
+Male votes: 	0
+Female votes: 	0
+----------------
+Total votes: 	0
 
 - Candidate 4 -
-Total votes: 3
-Male votes: 2
-Female votes: 1
-
+Male votes: 	2
+Female votes: 	1
+----------------
+Total votes: 	3
 
 - Candidate 5 -
-Total votes: 5
-Male votes: 2
-Female votes: 3
-
+Male votes: 	2
+Female votes: 	3
+----------------
+Total votes: 	5
 
 - Candidate 6 -
-Total votes: 1
-Male votes: 0
-Female votes: 1
-
+Male votes: 	0
+Female votes: 	1
+----------------
+Total votes: 	1
 
 - Candidate 7 -
-Total votes: 0
-Male votes: 0
-Female votes: 0
-
+Male votes: 	0
+Female votes: 	0
+----------------
+Total votes: 	0
 --- Age group statistics: ---
 
 Age group 0 (18-29):
