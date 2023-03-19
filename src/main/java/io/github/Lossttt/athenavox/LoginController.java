@@ -2,89 +2,42 @@ package io.github.Lossttt.athenavox;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import javafx.scene.text.Text;
 
 public class LoginController {
-
+    
     @FXML
     private TextField usernameField;
-
+    
     @FXML
     private PasswordField passwordField;
-
+    
     @FXML
     private Button loginButton;
-
+    
     @FXML
-    private Hyperlink forgotPasswordLink;
-
-    @FXML
-    private void handleLoginButtonAction() {
+    private Text errorText;
+    
+    public void initialize() {
+        // Set up event handling for login button
+        loginButton.setOnAction(e -> handleLogin());
+    }
+    
+    private void handleLogin() {
         String username = usernameField.getText();
         String password = passwordField.getText();
+        // Check if username and password are valid (e.g. match with database)
+        if (username.equals("validuser") && password.equals("validpassword")) {
+            // Login successful, navigate to main app window
+            System.out.println("Login successful!");
+            // Replace the following line with code to navigate to main app window
+            errorText.setText("Login successful!");
+        } else {
+            // Login failed, display error message
+            errorText.setText("Invalid username or password");
+        }
     }
-
-    // @FXML
-    // private void handleForgotPasswordLinkAction() {
-    //     // code to handle forgotten password
-    // }
-
-    // public class myLoginController implements Initializable {
-
-    //     @FXML
-    //     private TextField usernameField;
-
-    //     @FXML
-    //     private PasswordField passwordField;
-
-    //     @FXML
-    //     private Button loginButton;
-
-    //     @FXML
-    //     private Hyperlink forgotPasswordLink;
-
-    //     private Stage stage;
-
-    //     @Override
-    //     public void initialize(URL location, ResourceBundle resources) {
-    //         // Add event handler to the Login button
-    //         loginButton.setOnAction(event -> {
-    //             String username = usernameField.getText();
-    //             String password = passwordField.getText();
-
-    //             if (username.equals("myusername") && password.equals("mypassword")) {
-    //                 // Load the welcome.fxml file and display it
-    //                 FXMLLoader loader = new FXMLLoader(getClass().getResource("welcome.fxml"));
-    //                 try {
-    //                     Parent root = loader.load();
-    //                     Scene scene = new Scene(root);
-    //                     stage.setScene(scene);
-    //                 } catch (IOException e) {
-    //                     e.printStackTrace();
-    //                 }
-    //             } else {
-    //                 // Display an error message
-    //                 Alert alert = new Alert(Alert.AlertType.ERROR);
-    //                 alert.setTitle("Login Failed");
-    //                 alert.setHeaderText("Invalid username or password");
-    //                 alert.showAndWait();
-    //             }
-    //         });
-
-    //         // Add event handler to the Forgot Password link
-    //         forgotPasswordLink.setOnAction(event -> {
-    //             // Implement code to handle forgotten passwords
-    //         });
-    //     }
-
-    //     public void setStage(Stage stage) {
-    //         this.stage = stage;
-    //     }
-    // }
-
-    //     public static void setStage(Stage primaryStage) {
-    // }
+    
 }
