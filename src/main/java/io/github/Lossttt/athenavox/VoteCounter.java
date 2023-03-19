@@ -11,6 +11,8 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.scene.control.Tab;
+
 public class VoteCounter 
 {
     private static final int NUM_CANDIDATES = 8;     // Constant that defines the number of candidates in the election.
@@ -95,6 +97,36 @@ public class VoteCounter
         h_female.print(true);
     }
 
+    public void printTables() throws Exception {
+        String[] row_names = new String[] { "Candidate 0", "Candidate 1", "Candidate 2", "Candidate 3", 
+                "Candidate 4", "Candidate 5", "Candidate 6", "Candidate 7" };
+
+        TablePrinter t_candidates = new TablePrinter("Histogram of total votes per candidate:", NUM_CANDIDATES, row_names);
+        for (int i = 0; i < NUM_CANDIDATES; i++) 
+        {
+            t_candidates.add_data(i, candidateVotes[i]);
+        }
+
+        t_candidates.print(true);
+
+        TablePrinter t_male = new TablePrinter("Histogram of male votes per candidate:", NUM_CANDIDATES, row_names);
+
+        for (int i = 0; i < NUM_CANDIDATES; i++) 
+        {
+            t_male.add_data(i, maleVotes[i]);
+        }
+
+        t_male.print(true);
+
+        TablePrinter t_female = new TablePrinter("Histogram of female votes per candidate:", NUM_CANDIDATES, row_names);
+
+        for (int i = 0; i < NUM_CANDIDATES; i++) 
+        {
+            t_female.add_data(i, femaleVotes[i]);
+        }
+
+        t_female.print(true);
+    }
 
 
     private void calculateStatistics() 
@@ -200,6 +232,9 @@ public class VoteCounter
             "______________\n" + 
             "Total Votes: " + ageGroupCounts[i]);
         }
+    }
+    public boolean getHistogramData() {
+        return false;
     }
 }
 
