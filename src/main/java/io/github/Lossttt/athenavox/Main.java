@@ -13,14 +13,20 @@ public class Main extends Application {
     }
     public static void main(String[] args) throws Exception {
         String inputFile = "B:\\Java\\athenavox\\Vote_data.text";
+        String outputFile = "vote_results";
+        HistogramPrinter printer = new HistogramPrinter(outputFile, 7, args);
 
         VoteCounter counter = new VoteCounter(inputFile);
-        System.out.println("------ BEGIN of STATISTICS ------");
+        System.out.println("------ BEGIN of STATISTICS ------\n");
         counter.printHistogram();
         counter.printResults();
-        System.out.println("------ END of STATISTICS ------");;
-        
+        System.out.println("");
+        counter.printTables();
+        System.out.println("\n------ END of STATISTICS ------");;
+
+        }
+
         // launch(); // Comment this if you don't want to stage the scene
     
     }
-}
+
