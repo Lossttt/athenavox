@@ -6,14 +6,13 @@ import java.io.OutputStreamWriter;
 
 public class HistogramPrinter {
     private static char HIST_CHAR = '*'; 
-    private String histogram_name;
-    private int row_count;
-    private String[] row_names;
-    private int[] row_data;
+    protected String histogram_name;
+    protected int row_count;
+    protected String[] row_names;
+    protected int[] row_data;
     
     public HistogramPrinter (String histogram_name, int row_count, String[] row_names) 
     {
-
         this.histogram_name = histogram_name;
         
         this.row_count = row_count;
