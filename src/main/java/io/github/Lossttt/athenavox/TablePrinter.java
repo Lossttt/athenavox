@@ -4,11 +4,9 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.OutputStreamWriter;
 
-public class TablePrinter extends HistogramPrinter 
-{
+public class TablePrinter extends HistogramPrinter {
 
-    public TablePrinter(String table_name, int row_count, String[] row_names) 
-    {
+    public TablePrinter(String table_name, int row_count, String[] row_names) {
         super(table_name, row_count, row_names);
     }
 
@@ -16,10 +14,12 @@ public class TablePrinter extends HistogramPrinter
     public void print(boolean print_to_console) throws Exception {
         BufferedWriter writer;
 
-        if (print_to_console) writer = new BufferedWriter(new OutputStreamWriter(System.out));
-        else writer = new BufferedWriter(new FileWriter("vote_results.txt"));
+        if (print_to_console)
+            writer = new BufferedWriter(new OutputStreamWriter(System.out));
+        else
+            writer = new BufferedWriter(new FileWriter("vote_results.txt"));
 
-        writer.write("Table Name: " + histogram_name);
+        writer.write(histogram_name);
         writer.newLine();
         writer.write("--------------------------------");
         writer.newLine();
