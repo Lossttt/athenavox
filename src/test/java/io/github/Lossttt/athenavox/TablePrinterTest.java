@@ -32,7 +32,6 @@ class TablePrinterTest {
         // Try adding data to an invalid row index
         tablePrinter.add_data(3, 50);
 
-        // Check that the invalid data was not added
         Assertions.assertEquals(100, tablePrinter.row_data[0]);
         Assertions.assertEquals(200, tablePrinter.row_data[1]);
         Assertions.assertEquals(50, tablePrinter.row_data[2]);
