@@ -4,3 +4,6 @@
 
 # Ignore Target folder
 target/
+
+#Ignore .idea folder
+.idea
