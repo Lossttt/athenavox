@@ -233,9 +233,6 @@ public class VoteCounter
             "Total Votes: " + ageGroupCounts[i]);
         }
     }
-    public boolean getHistogramData() {
-        return false;
-    }
 }
 
 
