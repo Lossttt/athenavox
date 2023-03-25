@@ -20,10 +20,10 @@ public class HistogramPrinter {
         
         this.row_data = new int[row_count];
     }
-    
+
     public void add_data(int row, int data) 
     {
-        if (row >= row_count)
+        if (row >= row_count || row < 0)
         {
             System.out.println("add_data: Index out of bounds!");
             return;

@@ -165,7 +165,7 @@ public class VoteCounter
         return topCandidate;
     }
 
-    private boolean isValidVote(int age, int candidate) 
+    public boolean isValidVote(int age, int candidate)
     {
         if (age < 18 || age >= 90) 
         {
@@ -178,7 +178,7 @@ public class VoteCounter
         return true;
     }
 
-    private int getAgeGroup(int age) 
+    public int getAgeGroup(int age)
     {
         if (age < 30) {
             return 0;
