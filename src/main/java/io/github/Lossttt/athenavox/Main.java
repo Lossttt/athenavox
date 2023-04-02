@@ -1,6 +1,5 @@
 package io.github.Lossttt.athenavox;
 
-import java.security.Principal;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -12,21 +11,34 @@ public class Main extends Application {
         stage.show(); // shows the LOGIN_SCENE
     }
     public static void main(String[] args) throws Exception {
-        String inputFile = "B:\\Java\\athenavox\\Vote_data.text";
-        String outputFile = "vote_results";
-        HistogramPrinter printer = new HistogramPrinter(outputFile, 7, args);
 
-        VoteCounter counter = new VoteCounter(inputFile);
-        System.out.println("------ BEGIN of STATISTICS ------\n");
-        counter.printHistogram();
+        System.out.println("===========. BEGIN OF STATISTICS .===========");
+        VoteCounterStatistics counter = new VoteCounterStatistics("Vote_data.text");
         counter.printResults();
-        System.out.println("");
-        counter.printTables();
-        System.out.println("\n------ END of STATISTICS ------");;
+        counter.printAgeGroupVotes();
+        counter.printGenderDistribution();
+        counter.printAgeGroupResults();
 
-        }
+
+        VoteCounter voteCounter = new VoteCounter("Vote_data.text");
+        int[] candidateVotes = voteCounter.getCandidateVotes();
+        int[] maleVotes = voteCounter.getMaleVotes();
+        int[] femaleVotes = voteCounter.getFemaleVotes();
+    
+        HistogramPrinter print = new HistogramPrinter();
+    
+        // print total votes histogram 
+        print.printTotalVotesHistogram(candidateVotes, "Histogram of Total Votes per Candidate");
+    
+        // print male votes histogram 
+        print.printMaleVotesHistogram(maleVotes, "Histogram of Male Votes per Candidate");
+    
+        // print female votes histogram 
+        print.printFemaleVotesHistogram(femaleVotes, "Histogram of Female Votes per Candidate");
+        System.out.println("===========. END OF STATISTICS .===========");
+    }
 
         // launch(); // Comment this if you don't want to stage the scene
+}    
     
-    }
 
