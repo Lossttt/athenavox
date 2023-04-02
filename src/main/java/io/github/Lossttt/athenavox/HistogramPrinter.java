@@ -1,57 +1,72 @@
 package io.github.Lossttt.athenavox;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.OutputStreamWriter;
 
-public class HistogramPrinter {
-    private static char HIST_CHAR = '*'; 
-    protected String histogram_name;
-    protected int row_count;
-    protected String[] row_names;
-    protected int[] row_data;
-    
-    public HistogramPrinter (String histogram_name, int row_count, String[] row_names) 
-    {
-        this.histogram_name = histogram_name;
-        
-        this.row_count = row_count;
-        this.row_names = row_names;
-        
-        this.row_data = new int[row_count];
+
+public class HistogramPrinter extends HistogramGenerator {
+
+    private static char HIST_CHAR = '*';
+    private static String line = "--------------------------------------";
+
+    public HistogramPrinter() {
     }
 
-    public void add_data(int row, int data) 
-    {
-        if (row >= row_count || row < 0)
-        {
-            System.out.println("add_data: Index out of bounds!");
-            return;
+    private int getMax(int[] arr) {
+        int max = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
         }
-        
-        row_data[row] += data;
+        return max;
     }
-    
-    public void print(boolean print_to_console) throws Exception
-    {
-        BufferedWriter writer;
-	    
-	    if (print_to_console) writer = new BufferedWriter(new OutputStreamWriter(System.out));
-	    else writer = new BufferedWriter(new FileWriter("vote_results.txt"));
-	    
-	    writer.write(histogram_name); writer.newLine();
-	    writer.write("--------------------------------"); writer.newLine();
-	    
-	    for (int i = 0; i < row_count; i++)
-	    {
-	        writer.write(String.format("%s | " + "\t(%d)\t", row_names[i], row_data[i]));
-	        
-	        for (int j = 0; j < row_data[i]; j++) writer.write(HIST_CHAR);
-	        
-	        writer.newLine();
-	    }
-	    
-	    writer.newLine();
-	    writer.flush();
+
+    @Override
+    public void printTotalVotesHistogram(int[] candidateVotes, String title) {
+        System.out.println(title);
+        System.out.println(line);
+        
+        // Generate histogram for total votes per candidate
+        for (int i = 0; i < candidateVotes.length; i++) {
+            String histogramBar = "";
+            for (int j = 0; j < candidateVotes[i]; j++) {
+                histogramBar += HIST_CHAR;
+            }
+            System.out.printf("Candidate %d | %s  \t\t(%d)%n", i, histogramBar, candidateVotes[i]);
+        }
+        System.out.println("");
+    }
+
+    @Override
+    public void printMaleVotesHistogram(int[] maleVotes, String title) {
+        System.out.println(title);
+        System.out.println(line);
+
+        // Generate histogram for male votes per candidate
+        for (int i = 0; i < maleVotes.length; i++) {
+            String histogramBar = "";
+            for (int j = 0; j < maleVotes[i]; j++) {
+                histogramBar += HIST_CHAR;
+            }
+            System.out.printf("Candidate %d | %s  \t\t(%d)%n", i, histogramBar, maleVotes[i]);
+        }
+        System.out.println("");
+    }
+
+    @Override
+    public void printFemaleVotesHistogram(int[] femaleVotes, String title) {
+        System.out.println(title);
+        System.out.println(line);
+
+        // Generate histogram for female votes per candidate
+        for (int i = 0; i < femaleVotes.length; i++) {
+            String histogramBar = "";
+            for (int j = 0; j < femaleVotes[i]; j++) {
+                histogramBar += HIST_CHAR;
+            }
+            System.out.printf("Candidate %d | %s  \t\t(%d)%n", i, histogramBar, femaleVotes[i]);
+        }
+        System.out.println("");
     }
 }
+
+
