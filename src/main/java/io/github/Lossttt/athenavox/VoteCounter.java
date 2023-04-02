@@ -15,7 +15,7 @@ import javafx.scene.control.Tab;
 
 public class VoteCounter 
 {
-    private static final int NUM_CANDIDATES = 8;     // Constant that defines the number of candidates in the election.
+    static final int NUM_CANDIDATES = 8;     // Constant that defines the number of candidates in the election.
     private static final int AGE_MASK = 0xFE00;      // Constant that masks the age bits in a vote.
     private static final int GENDER_MASK = 0x0100;   // Constant that masks the gender bit in a vote.
     private static final int CANDIDATE_MASK = 0xFF;  // Constant the masks the candidate bit in a vote.
@@ -64,70 +64,6 @@ public class VoteCounter
         }
         calculateStatistics();
     }
-
-
-        public void printHistogram() throws Exception {
-        String[] row_names = new String[] { "Candidate 0", "Candidate 1", "Candidate 2", "Candidate 3", 
-                "Candidate 4", "Candidate 5", "Candidate 6", "Candidate 7" };
-
-        HistogramPrinter h_candidates = new HistogramPrinter("Histogram of total votes per candidate:", NUM_CANDIDATES, row_names);
-        for (int i = 0; i < NUM_CANDIDATES; i++) 
-        {
-            h_candidates.add_data(i, candidateVotes[i]);
-        }
-
-        h_candidates.print(true);
-
-        HistogramPrinter h_male = new HistogramPrinter("Histogram of male votes per candidate:", NUM_CANDIDATES, row_names);
-
-        for (int i = 0; i < NUM_CANDIDATES; i++) 
-        {
-            h_male.add_data(i, maleVotes[i]);
-        }
-
-        h_male.print(true);
-
-        HistogramPrinter h_female = new HistogramPrinter("Histogram of female votes per candidate:", NUM_CANDIDATES, row_names);
-
-        for (int i = 0; i < NUM_CANDIDATES; i++) 
-        {
-            h_female.add_data(i, femaleVotes[i]);
-        }
-
-        h_female.print(true);
-    }
-
-    public void printTables() throws Exception {
-        String[] row_names = new String[] { "Candidate 0", "Candidate 1", "Candidate 2", "Candidate 3", 
-                "Candidate 4", "Candidate 5", "Candidate 6", "Candidate 7" };
-
-        TablePrinter t_candidates = new TablePrinter("Histogram of total votes per candidate:", NUM_CANDIDATES, row_names);
-        for (int i = 0; i < NUM_CANDIDATES; i++) 
-        {
-            t_candidates.add_data(i, candidateVotes[i]);
-        }
-
-        t_candidates.print(true);
-
-        TablePrinter t_male = new TablePrinter("Histogram of male votes per candidate:", NUM_CANDIDATES, row_names);
-
-        for (int i = 0; i < NUM_CANDIDATES; i++) 
-        {
-            t_male.add_data(i, maleVotes[i]);
-        }
-
-        t_male.print(true);
-
-        TablePrinter t_female = new TablePrinter("Histogram of female votes per candidate:", NUM_CANDIDATES, row_names);
-
-        for (int i = 0; i < NUM_CANDIDATES; i++) 
-        {
-            t_female.add_data(i, femaleVotes[i]);
-        }
-
-        t_female.print(true);
-    }
-
 
     private void calculateStatistics() 
     {
@@ -199,29 +135,71 @@ public class VoteCounter
         }
     }
 
+    public int[] getCandidateVotes() {
+        return candidateVotes;
+    }
+
+    public int[] getMaleVotes() {
+        return maleVotes;
+    }
+
+    public int[] getFemaleVotes() {
+        return femaleVotes;
+    }
+
+    public static int getNumCandidates() {
+        return NUM_CANDIDATES;
+    }
+
+    public static int getAgeMask() {
+        return AGE_MASK;
+    }
+
+    public static int getGenderMask() {
+        return GENDER_MASK;
+    }
+
+    public static int getCandidateMask() {
+        return CANDIDATE_MASK;
+    }
+
+    public static int getNumAgeGroups() {
+        return NUM_AGE_GROUPS;
+    }
+
+    public List<Integer> getValidVotes() {
+        return validVotes;
+    }
+
+    public int[] getAgeGroupVotes() {
+        return ageGroupVotes;
+    }
+
+    public int[] getAgeGroupCounts() {
+        return ageGroupCounts;
+    }
+
     public void printResults() 
     {
-        System.out.println("*** Total number of valid votes: " + validVotes.size() + " *** \n");
 
         int youthCandidate = getTopCandidate(candidateVotes, 0, 3);
         int elderCandidate = getTopCandidate(candidateVotes, 4, 7);
-        System.out.println();
-        System.out.println("Candidate with the most votes from the youth age group (age < 30): " + youthCandidate);
-        System.out.println("Candidate with the most votes from the elder age group (age >= 60): " + elderCandidate);
-        System.out.println();
+        System.out.println("*** Candidate with the most votes from the ***");
+        System.out.println(" -Youth age group (age < 30): " + youthCandidate);
+        System.out.println(" -Elder age group (age >= 60): " + elderCandidate);
 
-        printAgeGroupResults();
+        System.out.println("\n*** Total number of valid votes:  *** \n -" + validVotes.size());
+
     }
 
     public void printAgeGroupResults() 
     {
         final String[] ageGroups = { "18-29", "30-44", "45-59", "60-99" };
 
-        System.out.println("--- Age group statistics: ---");
+        System.out.println("*** Age group statistics: ***\n");
 
         for (int i = 0; i < NUM_AGE_GROUPS; i++) 
         {
-            System.out.println("\n");
             System.out.println("Age group " + i + " (" + ageGroups[i] + ")" + ":\n");
             for (int j = 0; j < NUM_CANDIDATES; j++) 
             {
@@ -230,7 +208,7 @@ public class VoteCounter
 
             System.out.println(
             "______________\n" + 
-            "Total Votes: " + ageGroupCounts[i]);
+            "Total Votes: " + ageGroupCounts[i] + "\n");
         }
     }
 }
