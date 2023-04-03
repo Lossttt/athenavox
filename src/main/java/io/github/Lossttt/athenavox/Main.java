@@ -11,16 +11,17 @@ public class Main extends Application {
         stage.show(); // shows the LOGIN_SCENE
     }
     public static void main(String[] args) throws Exception {
+        String filename = "B:\\Java\\AthenaVox\\athenavox\\Vote_data.txt";
 
         System.out.println("===========. BEGIN OF STATISTICS .===========");
-        VoteCounterStatistics counter = new VoteCounterStatistics("Vote_data.text");
+        VoteCounterStatistics counter = new VoteCounterStatistics(filename);
         counter.printResults();
         counter.printAgeGroupVotes();
         counter.printGenderDistribution();
         counter.printAgeGroupResults();
 
 
-        VoteCounter voteCounter = new VoteCounter("Vote_data.text");
+        VoteCounter voteCounter = new VoteCounter(filename);
         int[] candidateVotes = voteCounter.getCandidateVotes();
         int[] maleVotes = voteCounter.getMaleVotes();
         int[] femaleVotes = voteCounter.getFemaleVotes();
