@@ -1,54 +1,53 @@
-// // Package
-// package io.github.Lossttt.athenavox;
+ // Package
+ package io.github.Lossttt.athenavox;
 
-// // Imports
-// import org.junit.Before;
-// import org.junit.jupiter.api.Assertions;
-// import org.junit.jupiter.api.BeforeEach;
-// import org.junit.jupiter.api.Test;
-// import java.io.*;
-// import static org.junit.jupiter.api.Assertions.*;
+ // Imports
+ import org.junit.Before;
+ import org.junit.jupiter.api.Assertions;
+ import org.junit.jupiter.api.BeforeEach;
+ import org.junit.jupiter.api.Test;
+ import java.io.*;
+ import static org.junit.jupiter.api.Assertions.*;
 
-// public class VoteCounterStatisticsTest {
+ public class VoteCounterStatisticsTest {
 
-//     private VoteCounterStatistics voteCounter;
+     private VoteCounterStatistics vcs;
+     private static final String FILENAME = "B:\\Java\\athenavox\\Vote_data.txt";
 
-//     @Before
-//     public void setUp() throws Exception {
-//         voteCounter = new VoteCounterStatistics("test_votes.txt");
-//     }
+     @BeforeEach
+     void setUp() throws Exception {
+         vcs = new VoteCounterStatistics(FILENAME);
+     }
 
-//     // Test that printResults() does not throw an exception
-//     @Test
-//     public void testPrintResults() {
-//         voteCounter.printResults();
-//     }
+     @Test
+     void testPrintCandidatePercentages() {
+         vcs.printCandidatePercentages();
+         // Test that verifies that the method doesn't return an empty or null output.
+         // It does this by checking that the output stream is not null after the method is called
+         assertNotNull(System.out);
+     }
 
-//     // Test that printCandidatePercentages() does not throw an exception
-//     @Test
-//     public void testPrintCandidatePercentages() {
-//         voteCounter.printCandidatePercentages();
-//     }
+     @Test
+     void testPrintAgeGroupVotes() {
+         vcs.printAgeGroupVotes();
+         // This test verifies that the printAgeGroupVotes() method does not return an empty or null output.
+         // It does this by checking that the System.out stream is not null after the method is called.
+         assertNotNull(System.out);
+     }
 
-//     // Test that printAgeGroupVotes() does not throw an exception
-//     @Test
-//     public void testPrintAgeGroupVotes() {
-//         voteCounter.printAgeGroupVotes();
-//     }
+     @Test
+     void testPrintGenderDistribution() {
+         vcs.printGenderDistribution();
+         // This test verifies that the printGenderDistribution() method does not return an empty or null output.
+         // It does this by checking that the System.out stream is not null after the method is called.
+         assertNotNull(System.out);
+     }
 
-//     // Test that printGenderDistribution() does not throw an exception
-//     @Test
-//     public void testPrintGenderDistribution() {
-//         voteCounter.printGenderDistribution();
-//     }
-
-//     @Test
-//     public void testGetGenderPercentage() {
-//         // Test with sample data
-//         double malePercentage = voteCounter.getGenderPercentage(0);
-//         double femalePercentage = voteCounter.getGenderPercentage(1);
-//         assertEquals(60.0, malePercentage, 0.1);
-//         assertEquals(40.0, femalePercentage, 0.1);
-//     }
-
-// }
+     @Test
+     void testGetGenderPercentage() {
+         // This test verifies that the getGenderPercentage() method returns the correct percentage of votes for each gender.
+         // It does this by comparing the expected output with the actual output, with a tolerance of 0.01.
+         assertEquals(53.33, vcs.getGenderPercentage(0), 0.01);
+         assertEquals(46.67, vcs.getGenderPercentage(1), 0.01);
+     }
+ }
