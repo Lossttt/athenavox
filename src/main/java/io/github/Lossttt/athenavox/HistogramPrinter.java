@@ -11,7 +11,7 @@ public class HistogramPrinter extends HistogramGenerator
     public HistogramPrinter() {
     }
 
-    private int getMax(int[] arr) 
+    int getMax(int[] arr) 
     {
         int max = arr[0];
         for (int i = 1; i < arr.length; i++) 
