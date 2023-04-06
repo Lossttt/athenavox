@@ -36,8 +36,8 @@ class HistogramPrinterTest {
     // passes them to the method and simply verifies that the method executes successfully wihout any errors.
         int[] candidateVotes = {5, 2, 8, 3, 1};
         String title = "Total votes per candidate";
-        HistogramPrinter histogramPrinter = new HistogramPrinter();
-        histogramPrinter.printTotalVotesHistogram(candidateVotes, title);
+        hp = new HistogramPrinter();
+        hp.printTotalVotesHistogram(candidateVotes, title);
         // Verify that the method executed successfully without errors
     }
 
@@ -47,8 +47,8 @@ class HistogramPrinterTest {
     // passes them to the method and simply verifies that the method executes successfully wihout any errors.
         int[] maleVotes = {3, 7, 2, 6, 1};
         String title = "Male votes per candidate";
-        HistogramPrinter histogramPrinter = new HistogramPrinter();
-        histogramPrinter.printMaleVotesHistogram(maleVotes, title);
+        hp = new HistogramPrinter();
+        hp.printMaleVotesHistogram(maleVotes, title);
         // Verify that the method executed successfully without errors
     }
 
@@ -58,8 +58,8 @@ class HistogramPrinterTest {
     // passes them to the method and simply verifies that the method executes successfully wihout any errors.
         int[] femaleVotes = {2, 6, 3, 5, 1};
         String title = "Female votes per candidate";
-        HistogramPrinter histogramPrinter = new HistogramPrinter();
-        histogramPrinter.printFemaleVotesHistogram(femaleVotes, title);
+        hp = new HistogramPrinter();
+        hp.printFemaleVotesHistogram(femaleVotes, title);
         // Verify that the method executed successfully without errors
     }
 }
