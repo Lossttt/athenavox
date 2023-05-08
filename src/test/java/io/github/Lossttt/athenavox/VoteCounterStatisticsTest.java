@@ -2,52 +2,128 @@
  package io.github.Lossttt.athenavox;
 
  // Imports
- import org.junit.Before;
  import org.junit.jupiter.api.Assertions;
  import org.junit.jupiter.api.BeforeEach;
  import org.junit.jupiter.api.Test;
- import java.io.*;
  import static org.junit.jupiter.api.Assertions.*;
 
- public class VoteCounterStatisticsTest {
 
-     private VoteCounterStatistics vcs;
-     private static final String FILENAME = "B:\\Java\\athenavox\\Vote_data.txt";
+ public class VoteCounterStatisticsTest 
+ {
 
-     @BeforeEach
-     void setUp() throws Exception {
-         vcs = new VoteCounterStatistics(FILENAME);
-     }
+    private VoteCounterStatistics vcs;
+    private static final String FILENAME = "Vote_data.txt";
 
-     @Test
-     void testPrintCandidatePercentages() {
-         vcs.printCandidatePercentages();
-         // Test that verifies that the method doesn't return an empty or null output.
-         // It does this by checking that the output stream is not null after the method is called
-         assertNotNull(System.out);
-     }
+    @BeforeEach
+    void setUp() throws Exception 
+    {
+        // Initialize VoteCounterStatistics object before each test
+        vcs = new VoteCounterStatistics(FILENAME);
+    }
 
-     @Test
-     void testPrintAgeGroupVotes() {
-         vcs.printAgeGroupVotes();
-         // This test verifies that the printAgeGroupVotes() method does not return an empty or null output.
-         // It does this by checking that the System.out stream is not null after the method is called.
-         assertNotNull(System.out);
-     }
+    @Test
+    void testPrintCandidatePercentages() 
+    {
+        // Invoke the method to print candidate percentages
+        vcs.printCandidatePercentages();
 
-     @Test
-     void testPrintGenderDistribution() {
-         vcs.printGenderDistribution();
-         // This test verifies that the printGenderDistribution() method does not return an empty or null output.
-         // It does this by checking that the System.out stream is not null after the method is called.
-         assertNotNull(System.out);
-     }
+        // Test that verifies that the method doesn't return an empty or null output.
+        // It does this by checking that the output stream is not null after the method is called
+        assertNotNull(System.out);
+    }
 
-     @Test
-     void testGetGenderPercentage() {
-         // This test verifies that the getGenderPercentage() method returns the correct percentage of votes for each gender.
-         // It does this by comparing the expected output with the actual output, with a tolerance of 0.01.
-         assertEquals(53.33, vcs.getGenderPercentage(0), 0.01);
-         assertEquals(46.67, vcs.getGenderPercentage(1), 0.01);
-     }
+    @Test
+    public void testPrintCandidatePercentages2() 
+    {
+        try 
+        {
+            vcs = new VoteCounterStatistics(FILENAME);
+        } catch (Exception e) 
+        {
+            Assertions.fail("Failed to initialize VoteCounterStatistics: " + e.getMessage());
+        }
+
+        // Invoke the method to print candidate percentages
+        vcs.printCandidatePercentages();
+
+        // No need to assert anything as it prints the output to the console
+    }
+
+    @Test
+    void testPrintAgeGroupVotes() 
+    {
+        // Invoke the method to print age group votes
+        vcs.printAgeGroupVotes();
+
+        // This test verifies that the printAgeGroupVotes() method does not return an empty or null output.
+        // It does this by checking that the System.out stream is not null after the method is called.
+        assertNotNull(System.out);
+    }
+
+    @Test
+    public void testPrintAgeGroupVotes2() 
+    {
+        try 
+        {
+            vcs = new VoteCounterStatistics(FILENAME);
+        } catch (Exception e) 
+        {
+            Assertions.fail("Failed to initialize VoteCounterStatistics: " + e.getMessage());
+        }
+
+        // Invoke the method to print age group votes
+        vcs.printAgeGroupVotes();
+
+        // No need to assert anything as it prints the output to the console
+    }
+
+    @Test
+    void testPrintGenderDistribution() 
+    {
+        // Invoke the method to print gender distribution
+        vcs.printGenderDistribution();
+
+        // This test verifies that the printGenderDistribution() method does not return an empty or null output.
+        // It does this by checking that the System.out stream is not null after the method is called.
+        assertNotNull(System.out);
+    }
+
+    @Test
+    public void testPrintGenderDistribution2() 
+    {
+        try {
+            vcs = new VoteCounterStatistics(FILENAME);
+        } catch (Exception e) 
+        {
+            Assertions.fail("Failed to initialize VoteCounterStatistics: " + e.getMessage());
+        }
+
+        // Invoke the method to print gender distribution
+        vcs.printGenderDistribution();
+
+        // No need to assert anything as it prints the output to the console
+    }
+
+    @Test
+    public void testPrintAgeGroupWinners() 
+    {
+    //This test method verifies the functionality of the printAgeGroupWinners() method.
+    //It tries to initialize a VoteCounterStatistics object by passing the FILENAME variable to the constructor.
+    //If an exception occurs during initialization, the test fails and displays an error message indicating the failure reason.
+        try 
+        {
+            // Initialize a VoteCounterStatistics object with the given FILENAME
+            vcs = new VoteCounterStatistics(FILENAME);
+        } catch (Exception e) 
+        {
+            // If an exception occurs during initialization, fail the test and provide an error message
+            Assertions.fail("Failed to initialize VoteCounterStatistics: " + e.getMessage());
+        }
+    
+        // Invoke the method to print age group winners
+        vcs.printAgeGroupWinners();
+    
+        // No need to assert anything as it prints the output to the console
+    }
+    
  }

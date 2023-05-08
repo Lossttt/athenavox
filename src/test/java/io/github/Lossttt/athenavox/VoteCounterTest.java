@@ -1,10 +1,14 @@
 package io.github.Lossttt.athenavox;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,10 +19,12 @@ class VoteCounterTest {
 
     private static final String FILENAME = "B:\\Java\\athenavox\\Vote_data.txt";
     private VoteCounter voteCounter;
+    private VoteCounterStatistics voteCounterStatistics;
 
     @BeforeEach
     void setUp() throws Exception {
         voteCounter = new VoteCounter(FILENAME);
+        voteCounterStatistics = new VoteCounterStatistics(FILENAME);
     }
 
     // This test checks if the isValidVote method returns the expected results for different age and candidate numbers

@@ -13,6 +13,7 @@ public class VoteCounterStatistics extends VoteCounter
     {
         super.printResults();
         printCandidatePercentages();
+        printAgeGroupWinners();
     }
     
     public void printCandidatePercentages() 
@@ -61,5 +62,19 @@ public class VoteCounterStatistics extends VoteCounter
             }
         }
         return ((double) genderVotes / totalVotes) * 100;
+    }
+
+    public void printAgeGroupWinners() 
+    {
+        int[] ageGroupWinners = getAgeGroupWinners();
+        System.out.println("*** Winners per age group ***");
+        for (int i = 0; i < NUM_AGE_GROUPS; i++) 
+        {
+            int ageGroupStart = i * 15;
+            int ageGroupEnd = ageGroupStart + 14;
+
+            System.out.printf("Age group %d (%d-%d): Candidate %d\n", i+1, ageGroupStart, ageGroupEnd, ageGroupWinners[i]);
+        }
+        System.out.println();
     }
 }
